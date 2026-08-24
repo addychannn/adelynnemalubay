@@ -42,7 +42,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Desktop Main Frog Character Illustration — Positioned AT THE VERY RIGHT CORNER OF THE SCREEN */}
-      <div className="hidden lg:block absolute right-0 bottom-0 w-[55vw] max-w-[850px] h-[550px] sm:h-[650px] lg:h-[720px] pointer-events-none z-10">
+      <div className="hidden lg:block absolute right-0 bottom-0 w-[55vw] max-w-[850px] h-[550px] sm:h-[650px] lg:h-[720px] xl:h-[1077px] pointer-events-none z-10">
         <Image
           src={appConfig.heroImage}
           alt={appConfig.owner}
@@ -56,12 +56,12 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Content */}
           <div className="lg:col-span-7 space-y-6 text-left pb-16">
-            <span className="text-4xl sm:text-5xl md:text-6xl font-medium text-gray-900 tracking-wide block">
+            <span className="text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-medium text-gray-900 tracking-wide block">
               I'm
             </span>
 
             {/* Heavy Display Name */}
-            <h1 className="text-7xl sm:text-8xl md:text-9xl font-black italic text-[#111827] tracking-tight leading-none uppercase font-sans">
+            <h1 className="text-7xl sm:text-8xl md:text-9xl xl:text-9xl font-black italic text-[#111827] tracking-tight leading-none uppercase font-sans">
               {appConfig.owner}
             </h1>
 
