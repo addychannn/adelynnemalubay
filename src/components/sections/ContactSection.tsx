@@ -5,7 +5,7 @@ import { contactConfig } from "@/config/contact";
 import { StarIcon } from "../ui/StarIcon";
 import { Button } from "../ui/Button";
 import { Mail, MapPin, CheckCircle } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "../ui/SocialIcons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "../ui/SocialIcons";
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -167,6 +167,18 @@ export const ContactSection: React.FC = () => {
                     <GithubIcon className="w-4 h-4" />
                   </div>
                   <span>{contactConfig.github}</span>
+                </a>
+
+                <a
+                  href={`https://${contactConfig.instagram}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#D2E874] transition-colors"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                    <InstagramIcon className="w-4 h-4" />
+                  </div>
+                  <span>{contactConfig.instagram}</span>
                 </a>
 
                 <a

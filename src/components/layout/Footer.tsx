@@ -4,7 +4,7 @@ import { appConfig } from "@/config/app";
 import { contactConfig } from "@/config/contact";
 import { navItems } from "@/config/navigation";
 import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "../ui/SocialIcons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "../ui/SocialIcons";
 
 export const Footer: React.FC = () => {
   return (
@@ -38,6 +38,15 @@ export const Footer: React.FC = () => {
                 aria-label="GitHub"
               >
                 <GithubIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={`https://${contactConfig.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-[#1D251A] flex items-center justify-center text-gray-300 hover:text-[#D2E874] transition-colors"
+                aria-label="GitHub"
+              >
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
                 href={`https://${contactConfig.linkedin}`}

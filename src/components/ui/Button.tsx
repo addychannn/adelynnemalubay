@@ -1,12 +1,24 @@
 import React from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// Union type allowing either button or anchor props
+type ButtonBaseProps = {
   variant?: "solid" | "outline" | "lime" | "dark";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   asChild?: boolean;
-  href?: string;
-}
+};
+
+type AnchorProps = ButtonBaseProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+  };
+
+type NativeButtonProps = ButtonBaseProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: undefined;
+  };
+
+export type ButtonProps = AnchorProps | NativeButtonProps;
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "solid",
@@ -17,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#566542]";
+    "inline-flex items-center justify-center font-medium rounded-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#566542]";
 
   const sizeStyles = {
     sm: "px-4 py-1.5 text-xs",
@@ -38,14 +50,21 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} className={combinedClasses}>
+      <a
+        href={href}
+        className={combinedClasses}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <button
+      className={combinedClasses}
+      {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
       {children}
     </button>
   );

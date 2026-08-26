@@ -25,9 +25,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="p-6 flex flex-col flex-1">
         {/* Category & Year */}
         <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 bg-[#EDF0E6] py-1.5 px-3 rounded-full">
             <span className="w-2 h-2 rounded-full bg-[#566542]" />
-            <span className="text-xs font-medium text-gray-600">
+            <span className="text-xs font-medium text-[#566542]">
               {project.category}
             </span>
           </div>
@@ -59,6 +59,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="pt-4 border-t border-gray-100">
           <a
             href={project.link || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center text-xs font-semibold text-gray-800 hover:text-[#566542] transition-colors gap-1 group/link"
           >
             <span>View Project</span>

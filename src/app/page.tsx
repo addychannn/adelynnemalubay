@@ -7,6 +7,8 @@ import { TechStackSection } from "@/components/sections/TechStackSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
+import { ExpAndStack } from "@/components/sections/ExpAndStack";
+import { ArtSection } from "@/components/sections/ArtSection";
 
 export default function Home() {
   return (
@@ -16,9 +18,9 @@ export default function Home() {
         <HeroSection />
         <RoleMarquee />
         <AboutSection />
-        <ExperienceEducationSection />
-        <TechStackSection />
+        <ExpAndStack/>
         <ProjectsSection />
+        <ArtSection />
         <ContactSection />
       </main>
       <Footer />

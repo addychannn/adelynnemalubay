@@ -31,3 +31,14 @@ export interface ProjectItem {
   link?: string;
   featured?: boolean;
 }
+
+export interface ArtItem {
+  id: string;
+  title: string;
+  year: string;
+  category: string;
+  tags: string[];
+  image: string;
+  link?: string;
+  featured?: boolean;
+}

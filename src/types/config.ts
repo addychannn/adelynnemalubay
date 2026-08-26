@@ -29,6 +29,7 @@ export interface ContactConfig {
   subheadline: string;
   email: string;
   github: string;
+  instagram: string;
   linkedin: string;
   location: string;
   openFor: string[];

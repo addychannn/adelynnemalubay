@@ -28,8 +28,8 @@ export const appConfig: AppConfig = {
   ],
   bioParagraph2:
     'You\'ll find me sketching new characters, belting out my favorite songs, or being a full-time servant to my cats 😸. Creativity isn\'t just my job—it\'s my lifestyle.',
-  heroImage: "/materials/hero section main image.png",
+  heroImage: "/materials/hero_image.png",
   logoImage: "/materials/logo.png",
   aboutImage: "/materials/about me image.png",
-  sleepingFrogImage: "/materials/about me cat iamge.png",
+  sleepingFrogImage: "/materials/sleeping_cat.png",
 };
