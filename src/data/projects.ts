@@ -67,10 +67,34 @@ export const projects: ProjectItem[] = [
     category: "Figma Plugin",
     year: "2026",
     description:
-      "A streamlined administrative accounting dashboard designed for local government units, simplifying budget tracking, transaction monitoring, monthly performance stats, and official report generation.",
+      "Structura is a custom Figma plugin that scans any layout and automatically generates a structured design system, eliminating hours of manual setup and bringing instant consistency to every project.",
     tags: ["UI/UX Research", "Plugin", "Figma"],
     image: "/materials/structura.png",
-    link: "https://addychannn.github.io/tools/structura.html",
+    link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
+    featured: true,
+  },
+  {
+    id: "project-7",
+    title: "SportsTXT",
+    category: "UI/UX Design",
+    year: "2026",
+    description:
+      "A fan-first platform that helps sports clubs, associations, and athletes connect directly with their fans, build engaged communities, and create new revenue streams through exclusive content and interactions.",
+    tags: ["UI/UX Research", "Plugin", "Figma"],
+    image: "/materials/sportstxt.png",
+    link: "https://sportstxt-adelynnemalubay.vercel.app/",
+    featured: true,
+  },
+  {
+    id: "project-8",
+    title: "Sign In Design",
+    category: "UI/UX Design",
+    year: "2026",
+    description:
+      "UI Concept: Sign-In Flow for a Cybersecurity & Pentesting Platform. Designed with high-contrast accents, custom OAuth integration, and ambient security status widgets to set the tone right from login.",
+    tags: ["UI/UX Research", "Plugin", "Figma"],
+    image: "/materials/signin.png",
+    link: "https://www.behance.net/gallery/254865209/Sign-In-Design",
     featured: true,
   },
 ];

@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-[#FAF9F5]/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3 group">
+        <a href="/#home" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 overflow-hidden">
             <Image
               src={appConfig.logoImage}

@@ -167,7 +167,7 @@ export const AboutSection: React.FC = () => {
                 variant="solid" 
                 size="md"
               >
-                Download CV
+                View Resume
               </Button>
               <Button href="#contact" variant="outline" size="md">
                 Get in Touch
