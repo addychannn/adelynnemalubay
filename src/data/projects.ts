@@ -18,7 +18,7 @@ export const projects: ProjectItem[] = [
     title: "BallerTube",
     category: "UI/UX Design",
     year: "2023",
-    description:
+    description: 
       "A modern video-sharing dashboard and streaming portal tailored for sports enthusiasts. It features customized player components, channel analytics, content discovery feeds, and intuitive navigation.",
     tags: ["UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/Desktop (Landing Page) 1.png",

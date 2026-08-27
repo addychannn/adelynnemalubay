@@ -1,12 +1,25 @@
 import React from "react";
+import { ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
 import { ProjectCard } from "../ui/ProjectCard";
 import { StarIcon } from "../ui/StarIcon";
 
 export const ViewProjects: React.FC = () => {
   return (
-    <section id="view_projects" className="bg-[#FAF9F5] py-16 md:py-24 border-t border-gray-200/60">
+    <section id="view_projects" className="bg-[#FAF9F5] py-16 md:py-10 border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Back Button */}
+        <div className="mb-6">
+          <a
+            href="/#home"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-emerald-900 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </a>
+        </div>
+
         {/* Label */}
         <div className="flex items-center gap-2 mb-3">
           <StarIcon className="w-3.5 h-3.5 text-[#7A8B63]" />
