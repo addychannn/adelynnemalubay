@@ -6,6 +6,9 @@ import gsap from "gsap";
 import { appConfig } from "@/config/app";
 import { Button } from "../ui/Button";
 
+const STAR_PATH =
+  "M0.377865 0.34258C1.15249 -0.426131 3.0282 0.143096 5.01165 1.60723C7.00645 0.157852 8.88708 -0.396522 9.65619 0.377736C10.425 1.15247 9.85614 3.02873 8.39154 5.0125C9.84075 7.00728 10.3955 8.88716 9.62103 9.65606C8.84621 10.425 6.97027 9.85538 4.98626 8.39043C2.99131 9.83983 1.11156 10.3956 0.342709 9.6209C-0.426105 8.84617 0.142787 6.96989 1.60736 4.98613C0.158401 2.99158 -0.396443 1.1115 0.377865 0.34258Z";
+
 export const AboutSection: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -73,30 +76,53 @@ export const AboutSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} id="about" className="bg-[#FAF9F5] py-16 md:py-24">
+    <section
+      ref={containerRef}
+      id="about"
+      // overflow-hidden stops the floating stars from causing sideways scroll on small screens
+      className="bg-[#FAF9F5] py-12 sm:py-16 md:py-24 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-center">
           {/* Left Column: Profile Graphic with Floating Stars */}
           <div className="lg:col-span-5 flex justify-center animate-item">
-            <div className="relative w-80 h-72 sm:w-96 sm:h-96">
+            <div className="relative w-full max-w-[18rem] min-[400px]:max-w-xs sm:max-w-sm lg:max-w-md aspect-[10/9] sm:aspect-square">
               {/* Star 1: Top Right */}
-              <div className="star-1 absolute -top-6 right-2 sm:right-6 z-20 text-[#272D18] pointer-events-none">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.377865 0.34258C1.15249 -0.426131 3.0282 0.143096 5.01165 1.60723C7.00645 0.157852 8.88708 -0.396522 9.65619 0.377736C10.425 1.15247 9.85614 3.02873 8.39154 5.0125C9.84075 7.00728 10.3955 8.88716 9.62103 9.65606C8.84621 10.425 6.97027 9.85538 4.98626 8.39043C2.99131 9.83983 1.11156 10.3956 0.342709 9.6209C-0.426105 8.84617 0.142787 6.96989 1.60736 4.98613C0.158401 2.99158 -0.396443 1.1115 0.377865 0.34258Z" fill="#272D18"/>
+              <div className="star-1 absolute -top-4 sm:-top-6 right-2 sm:right-6 z-20 pointer-events-none">
+                <svg
+                  className="w-2 h-2 sm:w-2.5 sm:h-2.5"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d={STAR_PATH} fill="#272D18" />
                 </svg>
               </div>
 
               {/* Star 2: Bottom Left */}
-              <div className="star-2 absolute bottom-0 -left-6 sm:left-0 z-20 text-[#272D18] pointer-events-none">
-               <svg width="20" height="20" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.377865 0.34258C1.15249 -0.426131 3.0282 0.143096 5.01165 1.60723C7.00645 0.157852 8.88708 -0.396522 9.65619 0.377736C10.425 1.15247 9.85614 3.02873 8.39154 5.0125C9.84075 7.00728 10.3955 8.88716 9.62103 9.65606C8.84621 10.425 6.97027 9.85538 4.98626 8.39043C2.99131 9.83983 1.11156 10.3956 0.342709 9.6209C-0.426105 8.84617 0.142787 6.96989 1.60736 4.98613C0.158401 2.99158 -0.396443 1.1115 0.377865 0.34258Z" fill="#272D18"/>
+              <div className="star-2 absolute bottom-0 left-0 z-20 pointer-events-none">
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d={STAR_PATH} fill="#272D18" />
                 </svg>
               </div>
 
               {/* Star 3: Mid Right */}
-              <div className="star-3 absolute top-1/2 -right-6 sm:-right-8 z-20 text-[#272D18] opacity-80 pointer-events-none">
-                <svg width="20" height="20" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.377865 0.34258C1.15249 -0.426131 3.0282 0.143096 5.01165 1.60723C7.00645 0.157852 8.88708 -0.396522 9.65619 0.377736C10.425 1.15247 9.85614 3.02873 8.39154 5.0125C9.84075 7.00728 10.3955 8.88716 9.62103 9.65606C8.84621 10.425 6.97027 9.85538 4.98626 8.39043C2.99131 9.83983 1.11156 10.3956 0.342709 9.6209C-0.426105 8.84617 0.142787 6.96989 1.60736 4.98613C0.158401 2.99158 -0.396443 1.1115 0.377865 0.34258Z" fill="#272D18"/>
+              <div className="star-3 absolute top-1/2 right-0 sm:-right-4 lg:-right-8 z-20 opacity-80 pointer-events-none">
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d={STAR_PATH} fill="#272D18" />
                 </svg>
               </div>
 
@@ -106,6 +132,7 @@ export const AboutSection: React.FC = () => {
                   src={appConfig.aboutImage}
                   alt={appConfig.owner}
                   fill
+                  sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 20rem"
                   className="object-contain"
                 />
               </div>
@@ -113,14 +140,10 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Right Column: Bio Content */}
-          <div className="lg:col-span-7 space-y-6">
-            <h2 className="animate-item text-5xl sm:text-6xl font-extrabold text-[#272D18] tracking-tight">
+          <div className="lg:col-span-7 min-w-0 space-y-4 sm:space-y-6">
+            <h2 className="animate-item text-3xl min-[400px]:text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#272D18] tracking-tight leading-tight break-words">
               {appConfig.bioHeadline}
             </h2>
-
-            {/* <p className="animate-item text-lg font-bold text-[#272D18]">
-              {appConfig.bioSubheadline}
-            </p> */}
 
             <p className="animate-item text-sm sm:text-base text-[#272D18] leading-relaxed">
               I am a{" "}
@@ -136,11 +159,14 @@ export const AboutSection: React.FC = () => {
             </p>
 
             {/* Principles */}
-            <ul className="space-y-3 pt-2">
-              {appConfig.bioPrinciples.map((principle, idx) => (
-                <li key={idx} className="animate-item flex items-start gap-3 text-sm sm:text-base text-[#272D18]">
+            <ul className="space-y-3 pt-1 sm:pt-2">
+              {appConfig.bioPrinciples.map((principle) => (
+                <li
+                  key={principle.title}
+                  className="animate-item flex items-start gap-3 text-sm sm:text-base text-[#272D18] leading-relaxed"
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 shrink-0" />
-                  <div>
+                  <div className="min-w-0">
                     <strong className="text-[#272D18] font-bold">
                       {principle.title}:
                     </strong>{" "}
@@ -151,20 +177,20 @@ export const AboutSection: React.FC = () => {
             </ul>
 
             {/* AFK Note */}
-            <div className="animate-item pt-2 text-sm sm:text-base text-[#272D18] leading-relaxed">
+            <div className="animate-item pt-1 sm:pt-2 text-sm sm:text-base text-[#272D18] leading-relaxed">
               <p className="font-bold text-[#272D18] mb-1">
-                When I'm &quot;AFK&quot;:
+                When I&apos;m &quot;AFK&quot;:
               </p>
               <p>{appConfig.bioParagraph2}</p>
             </div>
 
             {/* CTAs */}
-            <div className="animate-item flex flex-wrap items-center gap-4 pt-4">
-            <Button 
-                href="https://drive.google.com/file/d/1ZaYaN-hQynDW93F1QuZl23jT9jeLM-Pt/view?usp=sharing" 
+            <div className="animate-item flex flex-wrap items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <Button
+                href="https://drive.google.com/file/d/1iZjQOwPShdLvUPbCi8u6I6pYxjnDNX1b/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="solid" 
+                variant="solid"
                 size="md"
               >
                 View Resume

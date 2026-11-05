@@ -7,34 +7,51 @@ import { Button } from "../ui/Button";
 import { Mail, MapPin, CheckCircle } from "lucide-react";
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "../ui/SocialIcons";
 
-export const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "sending" | "success" | "error";
 
-  const handleSubmit = (e: React.FormEvent) => {
+const EMPTY_FORM = { name: "", email: "", subject: "", message: "" };
+
+export const ContactSection: React.FC = () => {
+  const [formData, setFormData] = useState(EMPTY_FORM);
+  const [honeypot, setHoneypot] = useState(""); // hidden field; real users leave it empty
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const mailSubject = encodeURIComponent(
-      formData.subject ? formData.subject : `Portfolio Inquiry from ${formData.name}`
-    );
-    const mailBody = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
+    setStatus("sending");
+    setErrorMessage("");
 
-    window.location.href = `mailto:${contactConfig.email}?subject=${mailSubject}&body=${mailBody}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website: honeypot }),
+      });
+      const data = await res.json().catch(() => ({}));
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSubmitted(false);
-    }, 5000);
+      if (!res.ok) {
+        throw new Error(data.error || "Couldn't send your message. Please try again.");
+      }
+
+      setStatus("success");
+      setFormData(EMPTY_FORM);
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Couldn't send your message. Please try again."
+      );
+    }
   };
+
+  const inputClass =
+    "w-full px-4 py-3 bg-[#131910] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#D2E874] transition-colors";
 
   return (
     <section id="contact" className="bg-[#1B2217] text-white py-16 md:py-24">
@@ -58,8 +75,11 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Form */}
           <div className="lg:col-span-7">
-            {submitted ? (
-              <div className="bg-[#263121] border border-[#D2E874]/30 rounded-2xl p-8 text-center space-y-4">
+            {status === "success" ? (
+              <div
+                role="status"
+                className="bg-[#263121] border border-[#D2E874]/30 rounded-2xl p-8 text-center space-y-4"
+              >
                 <CheckCircle className="w-12 h-12 text-[#D2E874] mx-auto" />
                 <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
                 <p className="text-sm text-gray-300">
@@ -68,6 +88,18 @@ export const ContactSection: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot: hidden from people, bots tend to fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  className="hidden"
+                />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-xs font-medium text-gray-300">
@@ -77,10 +109,11 @@ export const ContactSection: React.FC = () => {
                       id="name"
                       type="text"
                       required
+                      maxLength={100}
                       placeholder="Your name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#131910] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#D2E874] transition-colors"
+                      className={inputClass}
                     />
                   </div>
 
@@ -95,7 +128,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#131910] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#D2E874] transition-colors"
+                      className={inputClass}
                     />
                   </div>
                 </div>
@@ -107,10 +140,11 @@ export const ContactSection: React.FC = () => {
                   <input
                     id="subject"
                     type="text"
+                    maxLength={150}
                     placeholder="What's this about?"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#131910] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#D2E874] transition-colors"
+                    className={inputClass}
                   />
                 </div>
 
@@ -122,16 +156,29 @@ export const ContactSection: React.FC = () => {
                     id="message"
                     required
                     rows={5}
+                    maxLength={5000}
                     placeholder="Tell me about your project or idea..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#131910] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#D2E874] transition-colors resize-none"
+                    className={`${inputClass} resize-none`}
                   />
                 </div>
 
+                {status === "error" && (
+                  <p role="alert" className="text-sm text-red-400">
+                    {errorMessage}
+                  </p>
+                )}
+
                 <div>
-                  <Button type="submit" variant="lime" size="md" className="px-8">
-                    Send Message
+                  <Button
+                    type="submit"
+                    variant="lime"
+                    size="md"
+                    className="px-8 disabled:opacity-60 disabled:cursor-not-allowed"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? "Sending..." : "Send Message"}
                   </Button>
                 </div>
               </form>
@@ -151,10 +198,10 @@ export const ContactSection: React.FC = () => {
                   href={`mailto:${contactConfig.email}`}
                   className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#D2E874] transition-colors"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span>{contactConfig.email}</span>
+                  <span className="break-all">{contactConfig.email}</span>
                 </a>
 
                 <a
@@ -163,10 +210,10 @@ export const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#D2E874] transition-colors"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
                     <GithubIcon className="w-4 h-4" />
                   </div>
-                  <span>{contactConfig.github}</span>
+                  <span className="break-all">{contactConfig.github}</span>
                 </a>
 
                 <a
@@ -175,10 +222,10 @@ export const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#D2E874] transition-colors"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
                     <InstagramIcon className="w-4 h-4" />
                   </div>
-                  <span>{contactConfig.instagram}</span>
+                  <span className="break-all">{contactConfig.instagram}</span>
                 </a>
 
                 <a
@@ -187,14 +234,14 @@ export const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-300 hover:text-[#D2E874] transition-colors"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
                     <LinkedinIcon className="w-4 h-4" />
                   </div>
-                  <span>{contactConfig.linkedin}</span>
+                  <span className="break-all">{contactConfig.linkedin}</span>
                 </a>
 
                 <div className="flex items-center gap-3 text-sm text-gray-300">
-                  <div className="w-8 h-8 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#263121] flex items-center justify-center text-[#D2E874]">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <span>{contactConfig.location}</span>
@@ -209,8 +256,8 @@ export const ContactSection: React.FC = () => {
               </h3>
 
               <div className="space-y-3">
-                {contactConfig.openFor.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-gray-200">
+                {contactConfig.openFor.map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-sm text-gray-200">
                     <StarIcon className="w-3.5 h-3.5 text-[#D2E874]" />
                     <span>{item}</span>
                   </div>
