@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactConfig } from "@/config/contact";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Strip line breaks so user input can't inject extra email headers
@@ -39,6 +37,16 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set");
+      return NextResponse.json(
+        { error: "Email service isn't configured yet." },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(apiKey);
 
     const { error } = await resend.emails.send({
       // Use a verified domain here once you have one, e.g. "Portfolio <contact@yourdomain.com>"
