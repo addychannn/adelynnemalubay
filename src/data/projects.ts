@@ -25,7 +25,7 @@ export const projects: ProjectItem[] = [
     link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
     featured: true,
   },
-   {
+  {
     id: "project-3",
     title: "Niyaw: Financial Tracker",
     category: "UI/UX Design",
@@ -39,27 +39,26 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "project-4",
-    title: "Component Library",
-    category: "Design System",
-    year: "2023-2024",
+    title: "New Media Services Philippines",
+    category: "Wordpress",
+    year: "2026",
     description:
-      "A comprehensive design system and component library built with accessibility, scalability, and tokenized styling. Streamlines interface assembly with consistent visual feedback and documentation.",
-    tags: ["UI/UX Research", "Figma"],
-    image: "/materials/image 2.png",
-    link: "https://www.npmjs.com/package/nms-creative-ui",
+      "New Media Services Philippines is a BPO company website built on WordPress, showcasing the company's portfolio, services, and client testimonials with a modern and responsive design.",
+    tags: ["UI/UX", "Website", "Wordpress", "Maintenance"],
+    image: "/materials/nmsph.png",
+    link: "https://nms.ph/",
     featured: true,
   },
-  
   {
     id: "project-5",
-    title: "RE:Bank",
-    category: "UI/UX Design",
-    year: "2024",
+    title: "Live Chat Faeries",
+    category: "Wordpress",
+    year: "2026",
     description:
-      "A sleek personalized digital banking portal emphasizing card management, real-time analytics, secure transactions, and dark mode aesthetic designed to simplify personal financial management.",
-    tags: ["UI/UX Research", "Wireframing", "Figma"],
-    image: "/materials/BANKO CENTRAL.png",
-    link: "https://www.behance.net/gallery/202826347/Bank",
+      "Live Chat Faeries is a chat operating system website built on WordPress, providing a platform for users to engage in live chat support with a focus on user experience and accessibility.",
+    tags: ["UI/UX", "Website", "Wordpress", "Maintenance"],
+    image: "/materials/livechatfaeries.png",
+    link: "https://livechatfairies.com/",
     featured: true,
   },
    {
@@ -120,6 +119,30 @@ export const projects: ProjectItem[] = [
     tags: ["UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/UBVN.png",
     link: "https://www.behance.net/gallery/202825735/UBVN-Landing-Page",
+    featured: true,
+  },
+  {
+    id: "project-11",
+    title: "Component Library",
+    category: "Design System",
+    year: "2023-2024",
+    description:
+      "A comprehensive design system and component library built with accessibility, scalability, and tokenized styling. Streamlines interface assembly with consistent visual feedback and documentation.",
+    tags: ["UI/UX Research", "Figma"],
+    image: "/materials/image 2.png",
+    link: "https://www.npmjs.com/package/nms-creative-ui",
+    featured: true,
+  },
+   {
+    id: "project-12",
+    title: "RE:Bank",
+    category: "UI/UX Design",
+    year: "2024",
+    description:
+      "A sleek personalized digital banking portal emphasizing card management, real-time analytics, secure transactions, and dark mode aesthetic designed to simplify personal financial management.",
+    tags: ["UI/UX Research", "Wireframing", "Figma"],
+    image: "/materials/BANKO CENTRAL.png",
+    link: "https://www.behance.net/gallery/202826347/Bank",
     featured: true,
   },
 ];
