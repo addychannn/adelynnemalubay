@@ -57,7 +57,7 @@ export const projects: ProjectItem[] = [
     description:
       "Live Chat Faeries is a chat operating system website built on WordPress, providing a platform for users to engage in live chat support with a focus on user experience and accessibility.",
     tags: ["UI/UX", "Website", "Wordpress", "Maintenance"],
-    image: "/materials/livechatfaeries.png",
+    image: "/materials/livechat.png",
     link: "https://livechatfairies.com/",
     featured: true,
   },
