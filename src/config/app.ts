@@ -30,6 +30,6 @@ export const appConfig: AppConfig = {
     'You\'ll find me sketching new characters, belting out my favorite songs, or being a full-time servant to my cats 😸. Creativity isn\'t just my job—it\'s my lifestyle.',
   heroImage: "/materials/hero_image.webp",
   logoImage: "/materials/icon.png",
-  aboutImage: "/materials/about me image.png",
+  aboutImage: "/materials/about me image_1.png",
   sleepingFrogImage: "/materials/sleeping_cat.webp",
 };

@@ -3,11 +3,11 @@ import { SkillCategory } from "@/types/portfolio";
 export const skillCategories: SkillCategory[] = [
   {
     category: "Design",
-    skills: ["Figma", "Canva"],
+    skills: ["Figma", "Canva", "Draw.IO", "Medibang Pro", "HiPaint"],
   },
   {
     category: "Framework & Libraries",
-    skills: ["React", "Next.js", "Vue.js"],
+    skills: ["React", "Next.js", "Vue.js", "React Native"],
   },
   {
     category: "Core Web",
@@ -21,7 +21,17 @@ export const skillCategories: SkillCategory[] = [
       "Styled Components",
       "CSS Modules",
       "Material UI",
+      "Bootstrap",
+      "GSAP",
     ],
+  },
+  {
+    category: "CMS & Site Builders",
+    skills: ["WordPress", "Oxygen Builder"],
+  },
+  {
+    category: "Database",
+    skills: ["MySQL", "PostgreSQL", "Firebase"],
   },
   {
     category: "Tools & DevOps",

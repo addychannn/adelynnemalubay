@@ -1,32 +1,44 @@
 import { ProjectItem } from "@/types/portfolio";
 
 export const projects: ProjectItem[] = [
-  {
+    {
     id: "project-1",
-    title: "Musée d'Orsay",
+    title: "SayMate: Tap to Speak",
     category: "UI/UX Design",
-    year: "2023",
+    year: "2026",
     description:
-      "A stunning landing page for Musée d'Orsay, blending rich artwork, elegant fonts, and a dark, classy theme. It highlights exhibitions, famous artists, visit details, and a donation call, inviting visitors to explore art and culture in style.",
-    tags: ["UI/UX Research", "Wireframing", "Figma"],
-    image: "/materials/Museum Landing Page 1.png",
-    link: "https://www.behance.net/gallery/196733993/Daily-UI-Challenge-Landing-Page",
+      "SayMate is a simple AAC (Augmentative and Alternative Communication) flashcard app designed to help users communicate using images, text, and voice.",
+    tags: ["UI/UX Research","Figma", "Mobile App"],
+    image: "/materials/saymate.png",
+    link: "https://play.google.com/store/apps/details?id=com.mreycode.say_mate&pcampaignid=web_share",
     featured: true,
   },
-  {
+   {
     id: "project-2",
-    title: "BallerTube",
+    title: "Structura",
+    category: "Figma Plugin",
+    year: "2026",
+    description:
+      "Structura is a custom Figma plugin that scans any layout and automatically generates a structured design system, eliminating hours of manual setup and bringing instant consistency to every project.",
+    tags: ["UI/UX Research", "Plugin", "Figma"],
+    image: "/materials/structura.png",
+    link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
+    featured: true,
+  },
+   {
+    id: "project-3",
+    title: "Niyaw: Financial Tracker",
     category: "UI/UX Design",
-    year: "2023",
-    description: 
-      "A modern video-sharing dashboard and streaming portal tailored for sports enthusiasts. It features customized player components, channel analytics, content discovery feeds, and intuitive navigation.",
-    tags: ["UI/UX Research", "Wireframing", "Figma"],
-    image: "/materials/Desktop (Landing Page) 1.png",
-    link: "https://www.figma.com/design/lSseIbO2x6ADtp5k2Hhpwi/BallerTube--2023-?node-id=0-1&t=7LrCvSdC1YBpNFT5-1",
+    year: "2026",
+    description:
+      "Niyaw is a mobile application designed to help users track their expenses, manage budgets, and gain insights into their financial habits through intuitive visualizations and user-friendly interfaces.",
+    tags: ["UI/UX", "Mobile App", "Figma"],
+    image: "/materials/niyaw.png",
+    link: "https://niyaw.netlify.app/#",
     featured: true,
   },
   {
-    id: "project-3",
+    id: "project-4",
     title: "Component Library",
     category: "Design System",
     year: "2023-2024",
@@ -37,18 +49,7 @@ export const projects: ProjectItem[] = [
     link: "https://www.npmjs.com/package/nms-creative-ui",
     featured: true,
   },
-  {
-    id: "project-4",
-    title: "University Of Baguio: The Visual Novel",
-    category: "UI/UX Design",
-    year: "2023",
-    description:
-      "An interactive storytelling and visual novel game interface designed for university orientation and campus exploration, blending vibrant illustrations with engaging narrative choice menus.",
-    tags: ["UI/UX Research", "Wireframing", "Figma"],
-    image: "/materials/UBVN.png",
-    link: "https://www.behance.net/gallery/202825735/UBVN-Landing-Page",
-    featured: true,
-  },
+  
   {
     id: "project-5",
     title: "RE:Bank",
@@ -61,16 +62,16 @@ export const projects: ProjectItem[] = [
     link: "https://www.behance.net/gallery/202826347/Bank",
     featured: true,
   },
-  {
+   {
     id: "project-6",
-    title: "Structura",
-    category: "Figma Plugin",
-    year: "2026",
-    description:
-      "Structura is a custom Figma plugin that scans any layout and automatically generates a structured design system, eliminating hours of manual setup and bringing instant consistency to every project.",
-    tags: ["UI/UX Research", "Plugin", "Figma"],
-    image: "/materials/structura.png",
-    link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
+    title: "BallerTube",
+    category: "UI/UX Design",
+    year: "2023",
+    description: 
+      "A modern video-sharing dashboard and streaming portal tailored for sports enthusiasts. It features customized player components, channel analytics, content discovery feeds, and intuitive navigation.",
+    tags: ["UI/UX Research", "Wireframing", "Figma"],
+    image: "/materials/Desktop (Landing Page) 1.png",
+    link: "https://www.figma.com/design/lSseIbO2x6ADtp5k2Hhpwi/BallerTube--2023-?node-id=0-1&t=7LrCvSdC1YBpNFT5-1",
     featured: true,
   },
   {
@@ -95,6 +96,30 @@ export const projects: ProjectItem[] = [
     tags: ["UI/UX Research", "Plugin", "Figma"],
     image: "/materials/signin.png",
     link: "https://www.behance.net/gallery/254865209/Sign-In-Design",
+    featured: true,
+  },
+ {
+    id: "project-9",
+    title: "Musée d'Orsay",
+    category: "UI/UX Design",
+    year: "2023",
+    description:
+      "A stunning landing page for Musée d'Orsay, blending rich artwork, elegant fonts, and a dark, classy theme. It highlights exhibitions, famous artists, visit details, and a donation call, inviting visitors to explore art and culture in style.",
+    tags: ["UI/UX Research", "Wireframing", "Figma"],
+    image: "/materials/Museum Landing Page 1.png",
+    link: "https://www.behance.net/gallery/196733993/Daily-UI-Challenge-Landing-Page",
+    featured: true,
+  },
+  {
+    id: "project-10",
+    title: "University Of Baguio: The Visual Novel",
+    category: "UI/UX Design",
+    year: "2023",
+    description:
+      "An interactive storytelling and visual novel game interface designed for university orientation and campus exploration, blending vibrant illustrations with engaging narrative choice menus.",
+    tags: ["UI/UX Research", "Wireframing", "Figma"],
+    image: "/materials/UBVN.png",
+    link: "https://www.behance.net/gallery/202825735/UBVN-Landing-Page",
     featured: true,
   },
 ];
