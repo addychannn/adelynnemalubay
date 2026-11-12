@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import { ProjectCard } from "../ui/ProjectCard";
 import { StarIcon } from "../ui/StarIcon";
 import { Button } from "../ui/Button";
+import { ArrowRight } from "lucide-react";
 
 export const ProjectsSection: React.FC = () => {
   // Take only the first 6 projects
@@ -21,7 +22,7 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Title */}
         <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-12">
-          Projects
+          UI/UX Design
         </h2>
 
         {/* 2x3 Project Cards Grid */}
@@ -31,15 +32,14 @@ export const ProjectsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center mt-12 md:mt-16">
+        <div className="flex items-center justify-center mt-12">
           <Button 
             href="/projects" 
-            target="_blank"
-            rel="noopener noreferrer"
             variant="outline" 
             size="md"
           >
-            View All Projects ↗
+            View All Projects
+            <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>

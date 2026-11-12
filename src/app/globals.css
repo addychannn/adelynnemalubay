@@ -23,7 +23,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-archivo), system-ui, sans-serif;
-  cursor: url("/materials/mouse-pointer-cursor.png") 7 7, auto;
+  cursor: url("/materials/mouse-pointer-cursor.png") 13 14, auto;
 }
 
 a,
@@ -33,5 +33,25 @@ button,
 .cursor-pointer,
 input[type="button"],
 input[type="submit"] {
-  cursor: url("/materials/mouse-pointer-cursor.png") 7 7, pointer;
+  cursor: url("/materials/mouse-pointer-cursor.png") 13 14, pointer;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-float {
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float {
+    animation: none;
+  }
 }

@@ -4,6 +4,21 @@ import { appConfig } from "@/config/app";
 import { Button } from "../ui/Button";
 import { TypewriterRole } from "../ui/TypewriterRole";
 
+const HERO_STAR_PATH =
+  "M0.377865 0.34258C1.15249 -0.426131 3.0282 0.143096 5.01165 1.60723C7.00645 0.157852 8.88708 -0.396522 9.65619 0.377736C10.425 1.15247 9.85614 3.02873 8.39154 5.0125C9.84075 7.00728 10.3955 8.88716 9.62103 9.65606C8.84621 10.425 6.97027 9.85538 4.98626 8.39043C2.99131 9.83983 1.11156 10.3956 0.342709 9.6209C-0.426105 8.84617 0.142787 6.96989 1.60736 4.98613C0.158401 2.99158 -0.396443 1.1115 0.377865 0.34258Z";
+
+const FloatingStar: React.FC<{ className: string }> = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 10 10"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path d={HERO_STAR_PATH} fill="#272D18" />
+  </svg>
+);
+
 export const HeroSection: React.FC = () => {
   return (
     <section
@@ -43,6 +58,45 @@ export const HeroSection: React.FC = () => {
           sizes="(min-width: 1280px) 750px, (min-width: 1024px) 600px, (min-width: 640px) 420px, 220px"
           className="object-contain object-right-bottom"
         />
+      </div>
+
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10">
+        <span
+          className="hero-float absolute left-[8%] top-[27%] opacity-80"
+          style={{ animationDelay: "-1.5s" }}
+        >
+          <FloatingStar className="h-3 w-3 sm:h-4 sm:w-4" />
+        </span>
+        <span
+          className="hero-float absolute left-[43%] top-[17%]"
+          style={{ animationDelay: "-3s" }}
+        >
+          <FloatingStar className="h-5 w-5 sm:h-6 sm:w-6" />
+        </span>
+        <span
+          className="hero-float absolute right-[17%] top-[31%] opacity-70"
+          style={{ animationDelay: "-2s" }}
+        >
+          <FloatingStar className="h-4 w-4 sm:h-5 sm:w-5" />
+        </span>
+        <span
+          className="hero-float absolute bottom-[23%] left-[15%] opacity-75"
+          style={{ animationDelay: "-4s" }}
+        >
+          <FloatingStar className="h-3 w-3 sm:h-4 sm:w-4" />
+        </span>
+        <span
+          className="hero-float absolute bottom-[18%] right-[37%]"
+          style={{ animationDelay: "-0.5s" }}
+        >
+          <FloatingStar className="h-4 w-4 sm:h-5 sm:w-5" />
+        </span>
+        <span
+          className="hero-float absolute right-[8%] top-[57%] opacity-70"
+          style={{ animationDelay: "-2.5s" }}
+        >
+          <FloatingStar className="h-5 w-5 sm:h-6 sm:w-6" />
+        </span>
       </div>
 
       {/* Desktop Main Frog Character Illustration — hidden below 1024px */}

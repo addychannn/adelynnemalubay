@@ -19,6 +19,7 @@ export const Header: React.FC = () => {
               src={appConfig.logoImage}
               alt={appConfig.owner}
               fill
+              sizes="40px"
               className="object-contain group-hover:scale-105 transition-transform"
             />
           </div>

@@ -29,21 +29,21 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#566542]";
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
   const sizeStyles = {
-    sm: "px-4 py-1.5 text-xs",
-    md: "px-6 py-2.5 text-sm",
-    lg: "px-8 py-3.5 text-base",
+    sm: "min-h-9 px-4 text-xs",
+    md: "px-6 text-sm",
+    lg: "min-h-12 px-8 text-base",
   };
 
   const variantStyles = {
     solid:
-      "bg-[#566542] text-white hover:bg-[#445133] shadow-xs active:scale-[0.98]",
+      "bg-[#566542] text-white shadow-sm hover:-translate-y-0.5 hover:bg-[#445133] hover:shadow-md active:translate-y-0",
     outline:
-      "border border-[#566542] text-[#566542] hover:bg-[#566542]/10 active:scale-[0.98]",
-    lime: "bg-[#D2E874] text-[#1A2217] hover:bg-[#C2DB62] font-semibold shadow-xs active:scale-[0.98]",
-    dark: "bg-[#2A3525] text-white hover:bg-[#374431] active:scale-[0.98]",
+      "border border-[#566542]/35 bg-white text-[#445133] hover:-translate-y-0.5 hover:border-[#566542] hover:bg-[#566542]/5 hover:shadow-sm active:translate-y-0",
+    lime: "bg-[#D2E874] text-[#1A2217] shadow-sm hover:-translate-y-0.5 hover:bg-[#C2DB62] hover:shadow-md active:translate-y-0",
+    dark: "bg-[#2A3525] text-white shadow-sm hover:-translate-y-0.5 hover:bg-[#374431] hover:shadow-md active:translate-y-0",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

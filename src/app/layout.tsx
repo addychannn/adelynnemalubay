@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Archivo_Black } from "next/font/google";
 import { appConfig } from "@/config/app";
+import { PreventImageActions } from "@/components/ui/PreventImageActions";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -43,9 +45,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${archivo.variable} ${archivoBlack.variable} scroll-smooth h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FAF9F5] font-sans">
+        <PreventImageActions />
+        <ScrollToTop />
         {children}
       </body>
     </html>

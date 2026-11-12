@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ProjectItem } from "@/types/portfolio";
 import { Badge } from "./Badge";
 
@@ -43,7 +45,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         {/* Description */}
         <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-1 line-clamp-4">
-          {project.description}
+          {project.summary ?? project.description}
         </p>
 
         {/* Tags */}
@@ -55,19 +57,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
 
-        {/* Action Link */}
-        <div className="pt-4 border-t border-gray-100">
-          <a
-            href={project.link || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-xs font-semibold text-gray-800 hover:text-[#566542] transition-colors gap-1 group/link"
+        <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-gray-100 pt-5">
+          <Link
+            href={`/projects/${project.id}`}
+            className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#566542] px-4 text-xs font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#445133] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2"
           >
-            <span>View Project</span>
-            <span className="inline-block transition-transform group-hover/link:translate-x-1">
-              →
-            </span>
-          </a>
+            View Project Details
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+          {project.link && project.link !== "#" && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-gray-300 px-4 text-xs font-semibold text-gray-700 transition-colors hover:border-[#566542]/50 hover:bg-[#566542]/5 hover:text-[#445133] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2"
+            >
+              Visit Live Project
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          )}
         </div>
       </div>
     </article>

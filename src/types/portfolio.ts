@@ -24,6 +24,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   description: string;
+  summary?: string;
   year: string;
   category: string;
   tags: string[];

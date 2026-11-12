@@ -12,6 +12,8 @@ interface ArtCardProps {
 
 export const ArtCard: React.FC<ArtCardProps> = ({ art }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const isLogo = art.category === "Logo Design";
+  const isBanner = art.category === "Banner Design";
 
   // Animation Refs
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -89,14 +91,18 @@ export const ArtCard: React.FC<ArtCardProps> = ({ art }) => {
 
   return (
     <>
-      <article onClick={() => setIsPreviewOpen(true)} className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-gray-950 shadow-md">
+      <article
+        onClick={() => setIsPreviewOpen(true)}
+        className={`group relative ${isLogo ? "aspect-square bg-white" : isBanner ? "bg-gray-950" : "aspect-[3/4] bg-gray-950"} rounded-2xl overflow-hidden shadow-md`}
+        style={isBanner ? { aspectRatio: "1080 / 1920" } : undefined}
+      >
         {/* Artwork */}
         <Image
           src={art.image}
           alt={art.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className={`${isLogo ? "object-contain p-8" : isBanner ? "object-contain" : "object-cover"} transition-transform duration-700 ease-out group-hover:scale-105`}
         />
 
         {/* Persistent top-right badge */}

@@ -9,6 +9,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
 import { ExpAndStack } from "@/components/sections/ExpAndStack";
 import { ArtSection } from "@/components/sections/ArtSection";
+import { PostersLogosSection } from "@/components/sections/PostersLogosSection";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <AboutSection />
         <ExpAndStack/>
         <ProjectsSection />
+        <PostersLogosSection />
         <ArtSection />
         <ContactSection />
       </main>

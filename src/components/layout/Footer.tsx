@@ -19,6 +19,7 @@ export const Footer: React.FC = () => {
                   src={appConfig.logoImage}
                   alt={appConfig.owner}
                   fill
+                  sizes="32px"
                   className="object-contain"
                 />
               </div>
