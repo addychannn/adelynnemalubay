@@ -14,6 +14,8 @@ export const AboutSection: React.FC = () => {
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       // 1. Entrance animation timeline
       const tl = gsap.timeline();

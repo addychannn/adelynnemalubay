@@ -10,21 +10,18 @@ export const projects: ProjectItem[] = [
     year: "2026",
     description:
       "SayMate is a simple AAC (Augmentative and Alternative Communication) flashcard app that helps users communicate with images, text, and voice. Everyday words and needs are presented as visual cards that can be read and spoken aloud, offering another way to express a message. The interface brings these communication tools together in a clear, approachable mobile experience.",
+    summary:
+      "A mobile AAC flashcard app that pairs everyday words with images and spoken audio.",
+    caseStudy: {
+      challenge:
+        "For people who communicate without speech, expressing everyday words and needs can be difficult. SayMate explores another way to share those messages.",
+      approach:
+        "Bring visual cards, written words, and spoken audio together in a simple mobile experience.",
+      deliverable: "A mobile AAC flashcard app available on Google Play.",
+    },
     tags: ["Personal Project","UI/UX Research", "Figma", "Mobile App"],
     image: "/materials/say-mate.png",
     link: "https://play.google.com/store/apps/details?id=com.mreycode.say_mate&pcampaignid=web_share",
-    featured: true,
-  },
-  {
-    id: "project-2",
-    title: "Structura",
-    category: "Figma Plugin",
-    year: "2026",
-    description:
-      "Structura is a custom Figma plugin that scans a layout and automatically generates a structured design system from it. By turning visual patterns into reusable foundations, it helps reduce repetitive setup and makes it easier to bring consistency to a project. The plugin gives designers a faster starting point for organizing a design system directly in Figma.",
-    tags: ["Professional Work","UI/UX Research", "Plugin", "Figma"],
-    image: "/materials/structura.png",
-    link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
     featured: true,
   },
   {
@@ -35,10 +32,38 @@ export const projects: ProjectItem[] = [
     description:
       "Niyaw is a mobile application for tracking expenses, managing budgets, and understanding personal financial habits. It brings day-to-day tracking and visual summaries together so users can review their activity and spending patterns in one place. Its straightforward interface is designed to make financial information easier to navigate and understand.",
     summary:
-      "A mobile finance app for tracking expenses, managing budgets, and reviewing spending patterns through clear visual summaries.",
+      "A mobile finance experience combining expense tracking, budgets, and visual spending summaries.",
+    caseStudy: {
+      challenge:
+        "Tracking expenses, managing budgets, and understanding personal spending habits are connected parts of managing money.",
+      approach:
+        "Bring day-to-day tracking and visual summaries into one mobile experience.",
+      deliverable: "A mobile finance-tracking experience with an interactive project demo.",
+    },
     tags: ["Personal Project","UI/UX", "Mobile App", "Figma"],
     image: "/materials/niyaw-financial-tracker.png",
     link: "https://niyaw.netlify.app/#",
+    featured: true,
+  },
+  {
+    id: "project-2",
+    title: "Structura",
+    category: "Figma Plugin",
+    year: "2026",
+    description:
+      "Structura is a custom Figma plugin that scans a layout and automatically generates a structured design system from it. By turning visual patterns into reusable foundations, it helps reduce repetitive setup and makes it easier to bring consistency to a project. The plugin gives designers a faster starting point for organizing a design system directly in Figma.",
+    summary:
+      "A Figma plugin that turns a layout’s visual patterns into reusable design-system foundations.",
+    caseStudy: {
+      challenge:
+        "Creating reusable design foundations from an existing layout can involve repetitive setup and make consistency harder to maintain.",
+      approach:
+        "Scan a Figma layout and generate structured design-system foundations from its visual patterns.",
+      deliverable: "A Figma Community plugin for generating a design-system starting point.",
+    },
+    tags: ["Professional Work","UI/UX Research", "Plugin", "Figma"],
+    image: "/materials/structura.png",
+    link: "https://www.figma.com/community/plugin/1638830227761815496/structura-automated-design-system-generator",
     featured: true,
   },
   {
@@ -51,7 +76,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX", "Website", "Wordpress", "Maintenance"],
     image: "/materials/nms-ph.png",
     link: "https://nms.ph/",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-5",
@@ -63,7 +88,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX", "Website", "Wordpress", "Figma"],
     image: "/materials/newmedia-ai.png",
     link: "https://newmediaai.com/",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-6",
@@ -75,7 +100,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX", "Website", "Wordpress", "Figma"],
     image: "/materials/axentris-academy.png",
     link: "https://axentrisacademy.com/",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-7",
@@ -87,7 +112,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX", "Website", "Wordpress", "Maintenance"],
     image: "/materials/live-chat.png",
     link: "https://livechatfairies.com/",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-8",
@@ -99,7 +124,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX Research", "Plugin", "Figma"],
     image: "/materials/sportstxt.png",
     link: "https://sportstxt-adelynnemalubay.vercel.app/",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-9",
@@ -111,7 +136,7 @@ export const projects: ProjectItem[] = [
     tags: ["Experiments & Concepts","UI/UX Research", "Plugin", "Figma"],
     image: "/materials/signin.png",
     link: "https://www.behance.net/gallery/254865209/Sign-In-Design",
-    featured: true,
+    featured: false,
   },
 
   // 2024
@@ -125,7 +150,7 @@ export const projects: ProjectItem[] = [
     tags: ["Experiments & Concepts","UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/BANKO-CENTRAL.png",
     link: "https://www.behance.net/gallery/202826347/Bank",
-    featured: true,
+    featured: false,
   },
 
   // 2023–2024
@@ -139,7 +164,7 @@ export const projects: ProjectItem[] = [
     tags: ["Experiments & Concepts","Professional Work","UI/UX Research", "Figma"],
     image: "/materials/nms-component.png",
     link: "https://www.npmjs.com/package/nms-creative-ui",
-    featured: true,
+    featured: false,
   },
 
   // 2023
@@ -153,7 +178,7 @@ export const projects: ProjectItem[] = [
     tags: ["Professional Work","UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/ballertube.png",
     link: "https://www.figma.com/design/lSseIbO2x6ADtp5k2Hhpwi/BallerTube--2023-?node-id=0-1&t=7LrCvSdC1YBpNFT5-1",
-    featured: true,
+    featured: false,
   },
   {
     id: "musee-dorsay-2023",
@@ -165,7 +190,7 @@ export const projects: ProjectItem[] = [
     tags: ["Experiments & Concepts", "Personal Project","UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/museo.png",
     link: "https://www.behance.net/gallery/196733993/Daily-UI-Challenge-Landing-Page",
-    featured: true,
+    featured: false,
   },
   {
     id: "project-10",
@@ -177,6 +202,6 @@ export const projects: ProjectItem[] = [
     tags: ["Experiments & Concepts", "Personal Project","UI/UX Research", "Wireframing", "Figma"],
     image: "/materials/UB-VN.png",
     link: "https://www.behance.net/gallery/202825735/UBVN-Landing-Page",
-    featured: true,
+    featured: false,
   },
 ];

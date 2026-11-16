@@ -16,7 +16,7 @@ interface ViewProjectsProps {
 }
 
 const filters: { value: ProjectFilter; label: string }[] = [
-  { value: "all", label: "All Work" },
+  { value: "all", label: "All" },
   { value: "projects", label: "Projects" },
   { value: "logos", label: "Logos & Branding" },
   { value: "banners", label: "Posters & Banners" },
@@ -37,9 +37,11 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
     <button
       onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
       disabled={currentPage === 1}
-      className="min-h-10 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold text-gray-700 transition-colors hover:border-[#566542]/50 hover:bg-[#566542]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40"
+      aria-label="Previous page"
+      className="inline-flex min-h-10 min-w-10 items-center justify-center gap-1 rounded-full border border-gray-300 bg-white px-3 text-sm font-semibold text-gray-700 transition-colors hover:border-[#566542]/50 hover:bg-[#566542]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 sm:px-4"
     >
-      ← Previous
+      <span aria-hidden="true">←</span>
+      <span className="hidden sm:inline">Previous</span>
     </button>
 
     <div className="flex items-center gap-2">
@@ -62,9 +64,11 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
     <button
       onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
       disabled={currentPage === totalPages}
-      className="min-h-10 rounded-full border border-gray-300 bg-white px-4 text-sm font-semibold text-gray-700 transition-colors hover:border-[#566542]/50 hover:bg-[#566542]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40"
+      aria-label="Next page"
+      className="inline-flex min-h-10 min-w-10 items-center justify-center gap-1 rounded-full border border-gray-300 bg-white px-3 text-sm font-semibold text-gray-700 transition-colors hover:border-[#566542]/50 hover:bg-[#566542]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566542] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 sm:px-4"
     >
-      Next →
+      <span className="hidden sm:inline">Next</span>
+      <span aria-hidden="true">→</span>
     </button>
   </div>
 );
@@ -126,9 +130,12 @@ export const ViewProjects: React.FC<ViewProjectsProps> = ({ initialFilter }) => 
           </span>
         </div>
 
-        <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-12">
-          Selected Work
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
+          Projects
         </h2>
+        <p className="mb-10 max-w-2xl text-base leading-relaxed text-gray-600">
+          Browse product and mobile app projects first, then explore web and visual design work.
+        </p>
 
         <div className="sticky top-20 z-40 -mx-4 mb-8 border-b border-gray-200/80 bg-[#FAF9F5]/95 px-4 py-4 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="flex flex-wrap gap-3" aria-label="Filter portfolio work">

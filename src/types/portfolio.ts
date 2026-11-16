@@ -20,11 +20,18 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface ProjectCaseStudy {
+  challenge: string;
+  approach: string;
+  deliverable: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
   description: string;
   summary?: string;
+  caseStudy?: ProjectCaseStudy;
   year: string;
   category: string;
   tags: string[];

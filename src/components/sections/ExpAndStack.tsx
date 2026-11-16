@@ -11,6 +11,8 @@ export const ExpAndStack: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       // Top-Left Flower floating animation
       gsap.to(".cat-flower-1", {
@@ -57,7 +59,7 @@ export const ExpAndStack: React.FC = () => {
 
             {/* Sleeping Cat Image Container with Floating GSAP Flowers */}
             <div className="relative pt-2">
-              <div className="relative w-80 h-60 sm:w-96 sm:h-72 lg:w-[440px] lg:h-[310px] xl:w-[800px] xl:h-[600px] mx-auto lg:mx-0">
+              <div className="relative w-full max-w-[20rem] aspect-[4/3] sm:w-96 sm:h-72 lg:w-[440px] lg:h-[310px] xl:w-full xl:max-w-[800px] xl:h-auto xl:aspect-[4/3] mx-auto lg:mx-0">
                 {/* Floating Flower 1 (Top-Left) */}
                 <div className="cat-flower-1 absolute top-4 left-6 sm:left-12 z-10 text-[#272D18] pointer-events-none">
                 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,6 +79,7 @@ export const ExpAndStack: React.FC = () => {
                   src={appConfig.sleepingFrogImage}
                   alt="Sleeping cat in frog costume"
                   fill
+                  sizes="(min-width: 1280px) min(50vw, 800px), (min-width: 1024px) 440px, (min-width: 640px) 24rem, 20rem"
                   className="object-contain"
                   priority
                 />

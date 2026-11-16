@@ -44,6 +44,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             <h1 className="mb-8 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
               {project.title}
             </h1>
+            {project.summary && (
+              <p className="mb-8 max-w-3xl text-lg leading-8 text-gray-600">
+                {project.summary}
+              </p>
+            )}
 
             <div className="mb-10 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_16rem]">
               <div className="relative mx-auto aspect-video w-full max-w-3xl overflow-hidden rounded-2xl bg-gray-100 shadow-sm lg:mx-0">
@@ -70,10 +75,45 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               </aside>
             </div>
 
-            <div>
-              <h2 className="mb-3 text-xl font-bold text-gray-900">About this project</h2>
-              <p className="text-base leading-7 text-gray-600">{project.description}</p>
-            </div>
+            {project.caseStudy ? (
+              <section aria-labelledby="project-story-heading">
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#7A8B63]">
+                  Project story
+                </p>
+                <h2
+                  id="project-story-heading"
+                  className="mb-5 text-2xl font-bold text-gray-900"
+                >
+                  From challenge to deliverable
+                </h2>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {[
+                    ["The challenge", project.caseStudy.challenge],
+                    ["Design response", project.caseStudy.approach],
+                    ["Deliverable", project.caseStudy.deliverable],
+                  ].map(([heading, content]) => (
+                    <article
+                      key={heading}
+                      className="rounded-2xl border border-gray-200/80 bg-white p-5"
+                    >
+                      <h3 className="mb-2 text-sm font-bold text-gray-900">
+                        {heading}
+                      </h3>
+                      <p className="text-sm leading-6 text-gray-600">{content}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : (
+              <div>
+                <h2 className="mb-3 text-xl font-bold text-gray-900">
+                  About this project
+                </h2>
+                <p className="text-base leading-7 text-gray-600">
+                  {project.description}
+                </p>
+              </div>
+            )}
 
             <div className="mt-10">
               {project.link && project.link !== "#" && (

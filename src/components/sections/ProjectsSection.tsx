@@ -6,11 +6,10 @@ import { Button } from "../ui/Button";
 import { ArrowRight } from "lucide-react";
 
 export const ProjectsSection: React.FC = () => {
-  // Take only the first 6 projects
-  const featuredProjects = projects.slice(0, 6);
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
-    <section id="projects" className="bg-[#FAF9F5] py-16 md:py-24 border-t border-gray-200/60">
+    <section id="projects" className="scroll-mt-24 bg-[#FAF9F5] py-16 md:py-24 border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Label */}
         <div className="flex items-center gap-2 mb-3">
@@ -22,10 +21,12 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Title */}
         <h2 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-12">
-          UI/UX Design
+          Projects
         </h2>
+        {/* <p className="mb-10 -mt-6 max-w-2xl text-base leading-relaxed text-gray-600">
+          Mobile app projects first, followed by product tools. Browse more projects and visual work.
+        </p> */}
 
-        {/* 2x3 Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
